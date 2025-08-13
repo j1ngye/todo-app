@@ -1,4 +1,4 @@
-import "./styles.css";
+// import "./styles.css";
 
 class Project {
   constructor(title) {
@@ -32,14 +32,3 @@ function createTodo(projectTitle, title, description, dueDate, priority) {
     }
   }
 }
-
-const projectContainer = document.querySelector(".project-container");
-const projectAddButton = document.querySelector(
-  "project-container .add-button"
-);
-const projectAddForm = document.querySelector(".add-project-form");
-const projectAddFormSubmitButton = document.querySelector(".submit-button");
-
-projectAddButton.addEventListener("click", () => {
-  projectAddForm.classList.remove("hidden");
-});
