@@ -41,8 +41,7 @@ body {
   gap: 14px;
 }
 
-.project,
-form.add-project-form {
+.project {
   display: flex;
   justify-content: space-between;
   border: 1px solid #000000;
@@ -83,6 +82,11 @@ form.add-project-form input {
   margin-top: auto;
   width: 120px;
   align-self: center;
+}
+
+.add-project-form {
+  display: flex;
+  border: 1px solid #000000;
 }
 
 .right-panel {
