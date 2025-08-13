@@ -49,10 +49,6 @@ form.add-project-form {
   flex-shrink: 1;
 }
 
-form.add-project-form.hidden {
-  display: none;
-}
-
 .project .title {
   padding: 5px;
   overflow: hidden;
