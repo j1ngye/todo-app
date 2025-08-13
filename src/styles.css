@@ -102,6 +102,7 @@ form.add-project-form input {
 .todos-container {
   height: 80%;
   width: 80%;
+  overflow: hidden;
   background-color: #ededed;
   display: flex;
   flex-direction: column;
