@@ -49,7 +49,7 @@ form.add-project-form {
   flex-shrink: 1;
 }
 
-form.project.add-project-form {
+form.add-project-form.hidden {
   display: none;
 }
 
