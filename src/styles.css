@@ -38,8 +38,6 @@ body {
   flex-direction: column;
   padding: 20px 16px;
   gap: 14px;
-  overflow: auto;
-  scrollbar-gutter: stable;
 }
 
 .project {
@@ -86,8 +84,6 @@ body {
   flex-direction: column;
   gap: 30px;
   padding: 30px;
-  overflow: auto;
-  scrollbar-gutter: stable;
 }
 
 .right-panel .add-button {
