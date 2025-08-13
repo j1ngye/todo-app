@@ -55,14 +55,14 @@ body {
 }
 
 .project .delete-button,
-form.add-project-form .submit-button {
+.add-project-form .submit-button {
   height: 100%;
   min-width: 20%;
   border: none;
   background-color: #d9d9d9;
 }
 
-form.add-project-form input {
+.add-project-form input {
   display: block;
   outline: none;
   border: none;
