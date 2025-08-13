@@ -154,3 +154,65 @@ body {
 button {
   cursor: pointer;
 }
+
+/* add-todo form styles */
+
+.add-todo-form {
+  height: 80%;
+  width: 80%;
+  background-color: #ededed;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 16px;
+}
+
+.add-todo-form > div.input-container {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+}
+
+.add-todo-form > div.input-container label {
+  margin-bottom: 8px;
+}
+
+.add-todo-form > div.input-container input,
+textarea,
+select {
+  flex-grow: 1;
+  padding: 12px 6px;
+}
+
+div.input-container.description {
+  flex-grow: 1;
+}
+
+textarea#description {
+  height: 100%;
+}
+
+.add-todo-form .button-container {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  height: 50px;
+  padding: 5px;
+}
+
+.add-todo-form .button-container > button {
+  width: 120px;
+  flex-grow: 0;
+}
+
+.add-todo-form .button-container .back-button {
+  background-color: #6c4667;
+}
+
+.add-todo-form .button-container .submit-button {
+  background-color: #d57eb8;
+}
+
+.add-todo-form h1 {
+  align-self: center;
+}
