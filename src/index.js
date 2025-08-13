@@ -32,3 +32,12 @@ function createTodo(projectTitle, title, description, dueDate, priority) {
     }
   }
 }
+
+const addProjectButton = document.querySelector(
+  ".project-container > .add-button"
+);
+
+addProjectButton.addEventListener("click", () => {
+  const addProjectForm = document.querySelector(".add-project-form");
+  addProjectForm.style.display = "flex";
+});
