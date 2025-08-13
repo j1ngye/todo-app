@@ -161,7 +161,7 @@ button {
   height: 80%;
   width: 80%;
   background-color: #ededed;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 16px;
   padding: 20px 16px;
