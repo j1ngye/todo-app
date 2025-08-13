@@ -1,4 +1,4 @@
-import "./styles.css";
+// import "./styles.css";
 
 class Project {
   constructor(title) {
@@ -17,5 +17,18 @@ class Todo {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
+  }
+}
+
+let projects = [];
+function createProject(title) {
+  projects.push(new Project(title));
+}
+
+function createTodo(projectTitle, title, description, dueDate, priority) {
+  for (let p of projects) {
+    if (p.title === projectTitle) {
+      p.addTodo(new Todo(title, description, dueDate, priority));
+    }
   }
 }
