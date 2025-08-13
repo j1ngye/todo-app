@@ -31,6 +31,7 @@ body {
 }
 
 .project-container {
+  position: relative;
   height: 80%;
   width: 80%;
   background-color: #ededed;
@@ -46,6 +47,10 @@ form.add-project-form {
   justify-content: space-between;
   border: 1px solid #000000;
   flex-shrink: 1;
+}
+
+form.project.add-project-form {
+  display: none;
 }
 
 .project .title {
@@ -72,6 +77,9 @@ form.add-project-form input {
 }
 
 .project-container .add-button {
+  position: absolute;
+  top: -50px;
+  left: 0;
   background-color: #b973c6;
   border: none;
   color: #ededed;
