@@ -34,7 +34,7 @@ function createTodo(projectTitle, title, description, dueDate, priority) {
 }
 
 const addProjectButton = document.querySelector(
-  ".project-container > .add-button"
+  ".project-container .add-button"
 );
 
 addProjectButton.addEventListener("click", () => {
