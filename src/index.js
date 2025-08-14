@@ -1,9 +1,7 @@
 import "./styles.css";
 
 const projectContainer = document.querySelector(".project-container");
-const addProjectButton = document.querySelector(
-  ".project-container .add-button"
-);
+const addProjectButton = document.querySelector(".left-panel .add-button");
 const addProjectForm = document.querySelector(".add-project-form");
 const projectFormSubmitButton = document.querySelector(
   ".add-project-form .submit-button"
