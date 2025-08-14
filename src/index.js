@@ -36,18 +36,16 @@ function createTodo(projectTitle, title, description, dueDate, priority) {
 const addProjectButton = document.querySelector(
   ".project-container .add-button"
 );
-
+const addProjectForm = document.querySelector(".add-project-form");
 const projectFormSubmitButton = document.querySelector(
   ".add-project-form .submit-button"
 );
 
 addProjectButton.addEventListener("click", () => {
-  const addProjectForm = document.querySelector(".add-project-form");
   addProjectForm.style.display = "flex";
 });
 
 projectFormSubmitButton.addEventListener("click", (e) => {
   e.preventDefault();
-  const addProjectForm = document.querySelector(".add-project-form");
   addProjectForm.style.display = "none";
 });
