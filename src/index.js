@@ -2,6 +2,7 @@ import "./styles.css";
 import { Todo } from "./todoClass";
 import { Project } from "./projectClass";
 
+const projectContainer = document.querySelector(".project-container");
 const addProjectButton = document.querySelector(".left-panel .add-button");
 const addProjectForm = document.querySelector(".add-project-form");
 const projectFormSubmitButton = document.querySelector(
@@ -24,8 +25,7 @@ function createProject(title) {
   projects.push(new Project(title));
 }
 
-export function displayNewProject(project) {
-  const projectContainer = document.querySelector(".project-container");
+function displayNewProject(project) {
   const projectDiv = document.createElement("div");
   const projectTitle = document.createElement("p");
   const DeleteButton = document.createElement("button");
@@ -44,8 +44,54 @@ export function displayNewProject(project) {
   });
   projectDiv.appendChild(projectTitle);
   projectDiv.appendChild(DeleteButton);
-
   projectContainer.appendChild(projectDiv);
+}
+
+function displayNewTodo() {
+  todoContainer.innerHTML = "";
+
+  for (let todo of currentProject.todos) {
+    const todoDiv = document.createElement("div");
+    const checkBox = document.createElement("button");
+    const contentDiv = document.createElement("div");
+    const todoTitle = document.createElement("p");
+    const todoButtonContainer = document.createElement("div");
+    const deleteButton = document.createElement("button");
+    const editButton = document.createElement("button");
+
+    todoDiv.classList.add("todo");
+    checkBox.classList.add("checkbox");
+    contentDiv.classList.add("content");
+    todoTitle.classList.add("title");
+    todoButtonContainer.classList.add("button-container");
+    deleteButton.classList.add("delete-button");
+    editButton.classList.add("edit-button");
+
+    todoTitle.textContent = todo.title;
+    deleteButton.textContent = "X";
+    editButton.textContent = "Edit";
+
+    todoButtonContainer.appendChild(deleteButton);
+    todoButtonContainer.appendChild(editButton);
+
+    contentDiv.appendChild(todoTitle);
+    contentDiv.appendChild(todoButtonContainer);
+
+    todoDiv.appendChild(checkBox);
+    todoDiv.appendChild(contentDiv);
+
+    todoContainer.appendChild(todoDiv);
+
+    deleteButton.addEventListener("click", () => {
+      currentProject.todos = currentProject.todos.filter((t) => t !== todo);
+      displayNewTodo();
+    });
+
+    editButton.addEventListener("click", () => {
+      // Handle edit logic here (e.g., open an edit form with current todo data)
+      console.log("Editing todo:", todo);
+    });
+  }
 }
 
 addProjectButton.addEventListener("click", () => {
@@ -90,4 +136,6 @@ todoFormSubmitButton.addEventListener("click", (e) => {
   document.querySelector("select#priority").value = "";
   addTodoForm.style.display = "none";
   todoContainer.style.display = "flex";
+
+  displayNewTodo();
 });
