@@ -99,7 +99,7 @@ body {
   justify-content: center;
 }
 
-.todos-container {
+.todo-container {
   height: 80%;
   width: 80%;
   overflow: hidden;
