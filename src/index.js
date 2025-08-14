@@ -1,43 +1,28 @@
 import "./styles.css";
+import { Todo } from "./todoClass";
+import { Project } from "./projectClass";
+import { displayNewProject } from "./displayNewProject";
 
-const projectContainer = document.querySelector(".project-container");
 const addProjectButton = document.querySelector(".left-panel .add-button");
 const addProjectForm = document.querySelector(".add-project-form");
 const projectFormSubmitButton = document.querySelector(
   ".add-project-form .submit-button"
 );
 
+const todoContainer = document.querySelector(".todo-container");
+const addTodoButton = document.querySelector(".right-panel .add-button");
+const addTodoForm = document.querySelector(".add-todo-form");
+const todoFormSubmitButton = document.querySelector(
+  ".add-todo-form .submit-button"
+);
+const todoFormBackButton = document.querySelector(
+  ".add-todo-form .back-button"
+);
+
 let projects = [];
+let currentProject;
 function createProject(title) {
   projects.push(new Project(title));
-}
-
-function displayNewProject(project) {
-  const projectDiv = document.createElement("div");
-  const projectTitle = document.createElement("p");
-  const DeleteButton = document.createElement("button");
-
-  projectDiv.classList.add("project");
-  projectTitle.classList.add("title");
-  DeleteButton.classList.add("delete-button");
-
-  projectTitle.textContent = project.title;
-  DeleteButton.textContent = "X";
-
-  DeleteButton.addEventListener("click", () => projectDiv.remove());
-
-  projectDiv.appendChild(projectTitle);
-  projectDiv.appendChild(DeleteButton);
-
-  projectContainer.appendChild(projectDiv);
-}
-
-function createTodo(projectTitle, title, description, dueDate, priority) {
-  for (let p of projects) {
-    if (p.title === projectTitle) {
-      p.addTodo(new Todo(title, description, dueDate, priority));
-    }
-  }
 }
 
 addProjectButton.addEventListener("click", () => {
@@ -51,25 +36,31 @@ projectFormSubmitButton.addEventListener("click", (e) => {
   displayNewProject(projects[projects.length - 1]);
   addProjectForm.children[0].value = "";
   addProjectForm.style.display = "none";
-  console.log(projects);
 });
 
-class Project {
-  constructor(title) {
-    this.title = title;
-    this.todos = [];
-  }
+addTodoButton.addEventListener("click", () => {
+  addTodoForm.style.display = "flex";
+});
 
-  addTodo(todo) {
-    this.todos.push(todo);
-  }
-}
+todoFormSubmitButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  const titleInputValue = document.querySelector("input#todo-title").value;
+  const descriptionInputValue = document.querySelector(
+    "textarea#description"
+  ).value;
+  const dueDateInputValue = document.querySelector("input#due-date").value;
+  const priorityInputValue = document.querySelector("select#priority").value;
 
-class Todo {
-  constructor(title, description, dueDate, priority) {
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
-  }
-}
+  currentProject.addTodo(
+    new Todo(
+      titleInputValue,
+      descriptionInputValue,
+      dueDateInputValue,
+      priorityInputValue
+    )
+  );
+  document.querySelector("input#todo-title").value = "";
+  document.querySelector("textarea#description").value = "";
+  document.querySelector("input#due-date").value = "";
+  document.querySelector("select#priority").value = "";
+});
