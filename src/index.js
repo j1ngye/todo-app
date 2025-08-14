@@ -1,6 +1,4 @@
 import "./styles.css";
-import { Todo } from "./todoClass";
-import { Project } from "./projectClass";
 
 const projectContainer = document.querySelector(".project-container");
 const addProjectButton = document.querySelector(".left-panel .add-button");
@@ -140,3 +138,22 @@ todoFormSubmitButton.addEventListener("click", (e) => {
 
   displayNewTodo();
 });
+
+class Project {
+  constructor(title) {
+    this.title = title;
+    this.todos = [];
+  }
+
+  addTodo(todo) {
+    this.todos.push(todo);
+  }
+}
+class Todo {
+  constructor(title, description, dueDate, priority) {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+  }
+}
