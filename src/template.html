@@ -18,7 +18,34 @@
       </div>
       <div class="right-panel">
         <button class="add-button">Add a Todo</button>
-        <div class="todo-container">
+        <form class="add-todo-form">
+          <h1>Adding</h1>
+          <div class="input-container">
+            <label for="title">Title</label>
+            <input type="text" id="title" />
+          </div>
+          <div class="input-container description">
+            <label for="description">Description</label>
+            <textarea name="description" id="description"></textarea>
+          </div>
+          <div class="input-container">
+            <label for="due-date">Due Date</label>
+            <input type="date" name="due-date" id="due-date" />
+          </div>
+          <div class="input-container">
+            <label for="priority">Priority</label>
+            <select name="priority" id="priority">
+              <option value="" selected disabled>Select an option</option>
+              <option value="high">High</option>
+              <option value="low">Low</option>
+            </select>
+          </div>
+          <div class="button-container">
+            <button class="back-button">Back</button>
+            <button type="submit" class="submit-button">Submit</button>
+          </div>
+        </form>
+        <!-- <div class="todo-container">
           <div class="todo checked">
             <button class="checkbox"></button>
             <div class="content">
@@ -97,36 +124,9 @@
                 <button class="delete-button">X</button>
                 <button class="edit-button">Edit</button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <form class="add-todo-form">
-          <h1>Adding</h1>
-          <div class="input-container">
-            <label for="title">Title</label>
-            <input type="text" id="title" />
-          </div>
-          <div class="input-container description">
-            <label for="description">Description</label>
-            <textarea name="description" id="description"></textarea>
-          </div>
-          <div class="input-container">
-            <label for="due-date">Due Date</label>
-            <input type="date" name="due-date" id="due-date" />
-          </div>
-          <div class="input-container">
-            <label for="priority">Priority</label>
-            <select name="priority" id="priority">
-              <option value="" selected disabled>Select an option</option>
-              <option value="high">High</option>
-              <option value="low">Low</option>
-            </select>
-          </div>
-          <div class="button-container">
-            <button class="back-button">Back</button>
-            <button type="submit" class="submit-button">Submit</button>
-          </div>
-        </form>
       </div>
     </div>
   </body>
