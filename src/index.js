@@ -1,7 +1,6 @@
 import "./styles.css";
 import { Todo } from "./todoClass";
 import { Project } from "./projectClass";
-// import { displayNewProject } from "./displayNewProject";
 
 const addProjectButton = document.querySelector(".left-panel .add-button");
 const addProjectForm = document.querySelector(".add-project-form");
@@ -65,6 +64,7 @@ projectFormSubmitButton.addEventListener("click", (e) => {
 
 addTodoButton.addEventListener("click", () => {
   addTodoForm.style.display = "flex";
+  todoContainer.style.display = "none";
 });
 
 todoFormSubmitButton.addEventListener("click", (e) => {
@@ -89,4 +89,5 @@ todoFormSubmitButton.addEventListener("click", (e) => {
   document.querySelector("input#due-date").value = "";
   document.querySelector("select#priority").value = "";
   addTodoForm.style.display = "none";
+  todoContainer.style.display = "flex";
 });
