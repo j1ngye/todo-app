@@ -47,5 +47,7 @@ addProjectButton.addEventListener("click", () => {
 
 projectFormSubmitButton.addEventListener("click", (e) => {
   e.preventDefault();
+  const inputVal = addProjectForm.children[0].value;
+  createProject(inputVal);
   addProjectForm.style.display = "none";
 });
