@@ -109,6 +109,7 @@ projectFormSubmitButton.addEventListener("click", (e) => {
 });
 
 addTodoButton.addEventListener("click", () => {
+  if (!currentProject) return;
   addTodoForm.style.display = "flex";
   todoContainer.style.display = "none";
 });
