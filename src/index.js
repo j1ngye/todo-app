@@ -36,8 +36,13 @@ function displayNewProject(project) {
   DeleteButton.textContent = "X";
 
   DeleteButton.addEventListener("click", () => {
-    projectDiv.remove();
-    project.todos = [];
+    const removeConfirmation = confirm("Are you sure?");
+    if (removeConfirmation) {
+      projectDiv.remove();
+      project.todos = [];
+    } else {
+      return;
+    }
   });
   projectDiv.addEventListener("click", (e) => {
     e.stopPropagation();
