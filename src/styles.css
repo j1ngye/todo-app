@@ -14,6 +14,7 @@
   box-sizing: border-box;
   color: white;
   border-radius: 9px;
+  font-family: "Mozilla Headline", sans-serif;
 }
 
 body {
@@ -82,6 +83,7 @@ body {
   border: 3px solid var(--buttonBgColor1);
   background-color: var(--background-color2);
   flex-shrink: 1;
+  overflow: hidden;
 }
 
 .project.active {
@@ -90,6 +92,7 @@ body {
 
 .project.active .delete-button {
   background-color: var(--buttonBgColor5);
+  border-radius: 0;
 }
 
 .project .title {
@@ -201,6 +204,7 @@ body {
   display: flex;
   height: 100%;
   align-items: center;
+  overflow: hidden;
   border: 3px solid var(--buttonBgColor2);
 }
 
@@ -221,6 +225,8 @@ body {
 .content .button-container button {
   border-left: 3px solid var(--buttonBgColor2);
   background-color: var(--background-color2);
+  border-radius: 0;
+  overflow: hidden;
 }
 
 .button-container button {
