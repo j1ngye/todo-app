@@ -1,6 +1,6 @@
 import "./styles.css";
 import editSvgURL from "./images/edit.svg";
-import closeSvgURL from "./images/close.svg";
+import deleteSvgURL from "./images/close.svg";
 
 const projectContainer = document.querySelector(".project-container");
 const addProjectButton = document.querySelector(".left-panel .add-button");
@@ -31,17 +31,17 @@ function displayNewProject(project) {
   const projectDiv = document.createElement("div");
   const projectTitle = document.createElement("p");
   const deleteButton = document.createElement("button");
-  const img = document.createElement("img");
+  const deleteSvg = document.createElement("img");
 
   projectDiv.classList.add("project");
   projectTitle.classList.add("title");
   deleteButton.classList.add("delete-button");
-  img.src = closeSvgURL;
+  deleteSvg.src = deleteSvgURL;
   projectTitle.textContent = project.title;
 
   deleteButton.addEventListener("click", () => {
-    const removeConfirmation = confirm("Are you sure?");
-    if (removeConfirmation) {
+    const deleteConfirmation = confirm("Are you sure?");
+    if (deleteConfirmation) {
       projectDiv.remove();
       project.todos = [];
     } else {
@@ -58,7 +58,7 @@ function displayNewProject(project) {
     projectDiv.classList.add("active");
     displayNewTodo();
   });
-  deleteButton.appendChild(img);
+  deleteButton.appendChild(deleteSvg);
   projectDiv.appendChild(projectTitle);
   projectDiv.appendChild(deleteButton);
   projectContainer.appendChild(projectDiv);
@@ -78,6 +78,8 @@ function displayNewTodo() {
     const todoButtonContainer = document.createElement("div");
     const deleteButton = document.createElement("button");
     const editButton = document.createElement("button");
+    const deleteSvg = document.createElement("img");
+    const editSvg = document.createElement("img");
 
     todoDiv.classList.add("todo");
     checkBox.classList.add("checkbox");
@@ -86,10 +88,12 @@ function displayNewTodo() {
     todoButtonContainer.classList.add("button-container");
     deleteButton.classList.add("delete-button");
     editButton.classList.add("edit-button");
+    deleteSvg.src = deleteSvgURL;
+    editSvg.src = editSvgURL;
 
     todoTitle.textContent = todo.title;
-    deleteButton.textContent = "X";
-    editButton.textContent = "Edit";
+    deleteButton.appendChild(deleteSvg);
+    editButton.appendChild(editSvg);
 
     todoButtonContainer.appendChild(deleteButton);
     todoButtonContainer.appendChild(editButton);
