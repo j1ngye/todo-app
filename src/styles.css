@@ -119,6 +119,7 @@ body {
   padding: 5px;
   flex-grow: 1;
   min-width: 0;
+  font-size: 1.2rem;
 }
 
 .add-project-form {
