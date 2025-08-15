@@ -84,7 +84,11 @@ body {
 }
 
 .project.active {
-  border-bottom: 4px solid #1df954;
+  background-color: var(--buttonBgColor5);
+}
+
+.project.active .delete-button {
+  background-color: var(--buttonBgColor5);
 }
 
 .project .title {
@@ -200,6 +204,10 @@ body {
 }
 
 .todo .content.checked {
+  background-color: var(--buttonBgColor5);
+}
+
+.todo .content.checked .button-container > button {
   background-color: var(--buttonBgColor5);
 }
 
