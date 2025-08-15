@@ -179,7 +179,6 @@ body {
 }
 
 .todo .checkbox.checked {
-  border: 3px solid var(--buttonBgColor5);
   background-color: var(--buttonBgColor5);
 }
 
@@ -188,7 +187,6 @@ body {
   margin-left: auto;
   height: 100%;
   display: flex;
-  gap: 3px;
 }
 
 .todo .content {
