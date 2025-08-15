@@ -52,7 +52,16 @@ function displayNewProject(project) {
     const deleteConfirmation = confirm("Are you sure?");
     if (deleteConfirmation) {
       projectDiv.remove();
+      projects = projects.filter((p) => p !== project);
       project.todos = [];
+
+      if (currentProject === project) {
+        currentProject = null;
+      }
+
+      if (projects.length === 0) {
+        message.textContent = "Create a project to get started!";
+      }
     } else {
       return;
     }
@@ -170,7 +179,7 @@ projectFormSubmitButton.addEventListener("click", (e) => {
 });
 
 addTodoButton.addEventListener("click", () => {
-  if (!currentProject) {
+  if (projects.length === 0) {
     message.textContent = "You must have a project!";
     return;
   }
