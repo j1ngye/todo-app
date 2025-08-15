@@ -19,6 +19,8 @@ const todoFormBackButton = document.querySelector(
 
 let projects = [];
 let currentProject;
+let isEditing = false;
+let currentEditingTodo = null;
 function createProject(title) {
   projects.push(new Project(title));
 }
@@ -113,8 +115,15 @@ function displayNewTodo() {
     });
 
     editButton.addEventListener("click", () => {
-      // Handle edit logic here (e.g., open an edit form with current todo data)
-      console.log("Editing todo:", todo);
+      isEditing = true;
+      currentEditingTodo = todo;
+      addTodoForm.style.display = "flex";
+      todoContainer.style.display = "none";
+
+      document.querySelector("input#todo-title").value = todo.title;
+      document.querySelector("textarea#description").value = todo.description;
+      document.querySelector("input#due-date").value = todo.dueDate;
+      document.querySelector("select#priority").value = todo.priority;
     });
   }
 }
@@ -147,29 +156,39 @@ todoFormSubmitButton.addEventListener("click", (e) => {
   ).value;
   const dueDateInputValue = document.querySelector("input#due-date").value;
   const priorityInputValue = document.querySelector("select#priority").value;
+  if (isEditing && currentEditingTodo) {
+    currentEditingTodo.title = titleInputValue;
+    currentEditingTodo.description = descriptionInputValue;
+    currentEditingTodo.dueDate = dueDateInputValue;
+    currentEditingTodo.priority = priorityInputValue;
+  } else {
+    currentProject.addTodo(
+      new Todo(
+        titleInputValue,
+        descriptionInputValue,
+        dueDateInputValue,
+        priorityInputValue
+      )
+    );
+  }
+  resetTodoForm();
+  displayNewTodo();
+});
 
-  currentProject.addTodo(
-    new Todo(
-      titleInputValue,
-      descriptionInputValue,
-      dueDateInputValue,
-      priorityInputValue
-    )
-  );
+function resetTodoForm() {
   document.querySelector("input#todo-title").value = "";
   document.querySelector("textarea#description").value = "";
   document.querySelector("input#due-date").value = "";
   document.querySelector("select#priority").value = "";
   addTodoForm.style.display = "none";
   todoContainer.style.display = "flex";
-
-  displayNewTodo();
-});
+  isEditing = false;
+  currentEditingTodo = null;
+}
 
 todoFormBackButton.addEventListener("click", (e) => {
   e.preventDefault();
-  addTodoForm.style.display = "none";
-  todoContainer.style.display = "flex";
+  resetTodoForm();
 });
 
 class Project {
