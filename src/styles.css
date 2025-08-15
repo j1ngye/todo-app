@@ -1,10 +1,11 @@
 :root {
-  --background-color1--: #282a36;
-  --background-color2--: #44475a;
-  --buttonBgColor1--: #50fa7b;
-  --buttonBgColor2--: #f1fa8c;
-  --buttonBgColor3--: #bd93f9;
-  --buttonBgColor4--: #ffb86c;
+  --background-color1: #282a36;
+  --background-color2: #44475a;
+  --buttonBgColor1: #50fa7b;
+  --buttonBgColor2: #f1fa8c;
+  --buttonBgColor3: #bd93f9;
+  --buttonBgColor4: #ffb86c;
+  --buttonBgColor5: #ff79c6;
 }
 
 * {
@@ -22,7 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: var(--background-color1--);
+  background-color: var(--background-color1);
 }
 
 #container {
@@ -36,7 +37,7 @@ body {
 .left-panel {
   position: relative;
   width: 30%;
-  background-color: var(--background-color2--);
+  background-color: var(--background-color2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +48,7 @@ body {
   position: absolute;
   top: 2%;
   left: 10%;
-  border: 1px solid var(--buttonBgColor1--);
+  border: 1px solid var(--buttonBgColor1);
   padding: 14px 7px;
   margin-top: auto;
   width: 120px;
@@ -57,8 +58,8 @@ body {
 .project-container {
   height: 80%;
   width: 80%;
-  background-color: var(--background-color2--);
-  border: 5px solid var(--background-color1--);
+  background-color: var(--background-color2);
+  border: 5px solid var(--background-color1);
   display: flex;
   flex-direction: column;
   padding: 20px 16px;
@@ -68,7 +69,7 @@ body {
 .project {
   display: flex;
   justify-content: space-between;
-  border: 1px solid var(--buttonBgColor1--);
+  border: 1px solid var(--buttonBgColor1);
   flex-shrink: 1;
 }
 
@@ -82,14 +83,14 @@ body {
   height: 100%;
   min-width: 20%;
   border: none;
-  border-left: 1px solid var(--buttonBgColor1--);
+  border-left: 1px solid var(--buttonBgColor1);
 }
 
 .add-project-form .submit-button {
   height: 100%;
   min-width: 20%;
   border: none;
-  border-left: 1px solid var(--buttonBgColor1--);
+  border-left: 1px solid var(--buttonBgColor1);
 }
 
 .add-project-form input {
@@ -103,13 +104,13 @@ body {
 
 .add-project-form {
   display: none;
-  border: 1px solid var(--buttonBgColor1--);
+  border: 1px solid var(--buttonBgColor1);
 }
 
 .right-panel {
   width: 70%;
   position: relative;
-  background-color: var(--background-color2--);
+  background-color: var(--background-color2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,8 +121,8 @@ body {
   height: 80%;
   width: 80%;
   overflow: hidden;
-  background-color: var(--background-color2--);
-  border: 5px solid var(--background-color1--);
+  background-color: var(--background-color2);
+  border: 5px solid var(--background-color1);
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -134,7 +135,7 @@ body {
   left: 10%;
   padding: 14px 7px;
   width: 120px;
-  border: 1px solid var(--buttonBgColor2--);
+  border: 1px solid var(--buttonBgColor2);
 }
 
 .todo {
@@ -148,7 +149,11 @@ body {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 1px solid var(--buttonBgColor2--);
+  border: 1px solid var(--buttonBgColor2);
+}
+
+.todo .checkbox.checked {
+  border: 1px solid var(--buttonBgColor5);
 }
 
 .todo .button-container {
@@ -164,19 +169,20 @@ body {
   display: flex;
   height: 100%;
   align-items: center;
-  border: 1px solid var(--buttonBgColor2--);
+  border: 1px solid var(--buttonBgColor2);
 }
 
 .todo .title {
   padding: 8px;
 }
 
-.todo.checked .content .title {
+.todo .title.checked {
   text-decoration: line-through;
+  text-decoration-color: var(--buttonBgColor5);
 }
 
 .content .button-container button {
-  border-left: 1px solid var(--buttonBgColor2--);
+  border-left: 1px solid var(--buttonBgColor2);
 }
 
 .button-container button {
@@ -215,7 +221,7 @@ textarea,
 select {
   flex-grow: 1;
   padding: 12px 6px;
-  border: 1px solid var(--background-color1--);
+  border: 1px solid var(--background-color1);
   outline: none;
 }
 
@@ -241,11 +247,11 @@ textarea#description {
 }
 
 .add-todo-form .button-container .back-button {
-  border: 1px solid var(--buttonBgColor4--);
+  border: 1px solid var(--buttonBgColor4);
 }
 
 .add-todo-form .button-container .submit-button {
-  border: 1px solid var(--buttonBgColor3--);
+  border: 1px solid var(--buttonBgColor3);
 }
 
 .add-todo-form h1 {

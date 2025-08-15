@@ -90,6 +90,16 @@ function displayNewTodo() {
 
     todoContainer.appendChild(todoDiv);
 
+    checkBox.addEventListener("click", () => {
+      if (checkBox.classList.contains("checked")) {
+        checkBox.classList.remove("checked");
+        todoTitle.classList.remove("checked");
+      } else {
+        checkBox.classList.add("checked");
+        todoTitle.classList.add("checked");
+      }
+    });
+
     deleteButton.addEventListener("click", () => {
       currentProject.todos = currentProject.todos.filter((t) => t !== todo);
       displayNewTodo();
