@@ -142,11 +142,15 @@ addProjectButton.addEventListener("click", () => {
 projectFormSubmitButton.addEventListener("click", (e) => {
   e.preventDefault();
   const inputVal = addProjectForm.children[0].value;
-  createProject(inputVal);
-  currentProject = projects[projects.length - 1];
-  displayNewProject(projects[projects.length - 1]);
-  addProjectForm.children[0].value = "";
-  addProjectForm.style.display = "none";
+  if (inputVal === "") {
+    alert("Title is required");
+  } else {
+    createProject(inputVal);
+    currentProject = projects[projects.length - 1];
+    displayNewProject(projects[projects.length - 1]);
+    addProjectForm.children[0].value = "";
+    addProjectForm.style.display = "none";
+  }
 });
 
 addTodoButton.addEventListener("click", () => {
