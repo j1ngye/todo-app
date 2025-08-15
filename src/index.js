@@ -2,6 +2,7 @@ import "./styles.css";
 import editSvgURL from "./images/edit.svg";
 import deleteSvgURL from "./images/close.svg";
 
+const logo = document.querySelector("#logo");
 const projectContainer = document.querySelector(".project-container");
 const addProjectButton = document.querySelector(".left-panel .add-button");
 const addProjectForm = document.querySelector(".add-project-form");
@@ -26,6 +27,13 @@ let currentEditingTodo = null;
 function createProject(title) {
   projects.push(new Project(title));
 }
+
+logo.addEventListener("click", () => {
+  todoContainer.style.backgroundBlendMode =
+    todoContainer.style.backgroundBlendMode === "normal"
+      ? "luminosity"
+      : "normal";
+});
 
 function displayNewProject(project) {
   const projectDiv = document.createElement("div");
