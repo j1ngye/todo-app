@@ -221,6 +221,10 @@ button:hover {
   cursor: pointer;
 }
 
+button {
+  font-size: 1rem;
+}
+
 /* add-todo form styles */
 
 .add-todo-form {
@@ -228,33 +232,30 @@ button:hover {
   width: 80%;
   display: none;
   flex-direction: column;
-  gap: 16px;
   padding: 20px 16px;
+  gap: 10px;
   border: 5px solid #282a36;
 }
 
 .add-todo-form > div.input-container {
   display: flex;
   flex-direction: column;
-  height: 60px;
-}
-
-.add-todo-form > div.input-container label {
-  margin-bottom: 8px;
 }
 
 .add-todo-form > div.input-container input,
 textarea,
 select {
-  flex-grow: 1;
   padding: 12px 6px;
   border: 3px solid var(--background-color1);
   background-color: var(--background-color2);
   outline: none;
+  font-size: 1rem;
+  flex-grow: 1;
+  margin-top: 10px;
 }
 
 div.input-container.description {
-  flex-grow: 1;
+  flex-grow: 2;
 }
 
 textarea#description {
@@ -262,6 +263,7 @@ textarea#description {
 }
 
 .add-todo-form .button-container {
+  margin-top: auto;
   display: flex;
   justify-content: center;
   gap: 24px;
