@@ -1,7 +1,18 @@
+:root {
+  --background-color1--: #282a36;
+  --background-color2--: #44475a;
+  --buttonBgColor1--: #50fa7b;
+  --buttonBgColor2--: #f1fa8c;
+  --buttonBgColor3--: #bd93f9;
+  --buttonBgColor4--: #ffb86c;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: #44475a;
+  color: white;
 }
 
 body {
@@ -11,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: #6c4667;
+  background-color: var(--background-color1--);
 }
 
 #container {
@@ -19,12 +30,13 @@ body {
   height: 100%;
   display: flex;
   gap: 10px;
+  background-color: inherit;
 }
 
 .left-panel {
   position: relative;
   width: 30%;
-  background-color: #d9d9d9;
+  background-color: var(--background-color2--);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,9 +47,7 @@ body {
   position: absolute;
   top: 2%;
   left: 10%;
-  background-color: #b973c6;
-  border: none;
-  color: #ededed;
+  border: 1px solid var(--buttonBgColor1--);
   padding: 14px 7px;
   margin-top: auto;
   width: 120px;
@@ -47,7 +57,8 @@ body {
 .project-container {
   height: 80%;
   width: 80%;
-  background-color: #ededed;
+  background-color: var(--background-color2--);
+  border: 5px solid var(--background-color1--);
   display: flex;
   flex-direction: column;
   padding: 20px 16px;
@@ -57,7 +68,7 @@ body {
 .project {
   display: flex;
   justify-content: space-between;
-  border: 1px solid #000000;
+  border: 1px solid var(--buttonBgColor1--);
   flex-shrink: 1;
 }
 
@@ -67,12 +78,18 @@ body {
   flex-grow: 1;
 }
 
-.project .delete-button,
+.project .delete-button {
+  height: 100%;
+  min-width: 20%;
+  border: none;
+  border-left: 1px solid var(--buttonBgColor1--);
+}
+
 .add-project-form .submit-button {
   height: 100%;
   min-width: 20%;
   border: none;
-  background-color: #d9d9d9;
+  border-left: 1px solid var(--buttonBgColor1--);
 }
 
 .add-project-form input {
@@ -86,13 +103,13 @@ body {
 
 .add-project-form {
   display: none;
-  border: 1px solid #000000;
+  border: 1px solid var(--buttonBgColor1--);
 }
 
 .right-panel {
   width: 70%;
   position: relative;
-  background-color: #d9d9d9;
+  background-color: var(--background-color2--);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,7 +120,8 @@ body {
   height: 80%;
   width: 80%;
   overflow: hidden;
-  background-color: #ededed;
+  background-color: var(--background-color2--);
+  border: 5px solid var(--background-color1--);
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -114,11 +132,9 @@ body {
   position: absolute;
   top: 2%;
   left: 10%;
-  background-color: #4d81ea;
-  border: none;
-  color: #ededed;
   padding: 14px 7px;
   width: 120px;
+  border: 1px solid var(--buttonBgColor2--);
 }
 
 .todo {
@@ -132,8 +148,7 @@ body {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: none;
-  background-color: #d9d9d9;
+  border: 1px solid var(--buttonBgColor2--);
 }
 
 .todo .button-container {
@@ -149,7 +164,7 @@ body {
   display: flex;
   height: 100%;
   align-items: center;
-  background-color: #d9d9d9;
+  border: 1px solid var(--buttonBgColor2--);
 }
 
 .todo .title {
@@ -160,19 +175,13 @@ body {
   text-decoration: line-through;
 }
 
-.todo.checked .content {
-  opacity: 50%;
-}
-
-.todo.checked button.checkbox {
-  background-color: #d57eb8;
+.content .button-container button {
+  border-left: 1px solid var(--buttonBgColor2--);
 }
 
 .button-container button {
   flex-grow: 1;
   border: none;
-  background-color: #827f7f;
-  color: #ededed;
 }
 
 button:hover {
@@ -184,11 +193,11 @@ button:hover {
 .add-todo-form {
   height: 80%;
   width: 80%;
-  background-color: #ededed;
   display: none;
   flex-direction: column;
   gap: 16px;
   padding: 20px 16px;
+  border: 5px solid #282a36;
 }
 
 .add-todo-form > div.input-container {
@@ -206,6 +215,8 @@ textarea,
 select {
   flex-grow: 1;
   padding: 12px 6px;
+  border: 1px solid var(--background-color1--);
+  outline: none;
 }
 
 div.input-container.description {
@@ -230,11 +241,11 @@ textarea#description {
 }
 
 .add-todo-form .button-container .back-button {
-  background-color: #6c4667;
+  border: 1px solid var(--buttonBgColor4--);
 }
 
 .add-todo-form .button-container .submit-button {
-  background-color: #d57eb8;
+  border: 1px solid var(--buttonBgColor3--);
 }
 
 .add-todo-form h1 {
