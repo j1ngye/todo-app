@@ -1,4 +1,6 @@
 import "./styles.css";
+import editSvgURL from "./images/edit.svg";
+import closeSvgURL from "./images/close.svg";
 
 const projectContainer = document.querySelector(".project-container");
 const addProjectButton = document.querySelector(".left-panel .add-button");
@@ -28,16 +30,16 @@ function createProject(title) {
 function displayNewProject(project) {
   const projectDiv = document.createElement("div");
   const projectTitle = document.createElement("p");
-  const DeleteButton = document.createElement("button");
+  const deleteButton = document.createElement("button");
+  const img = document.createElement("img");
 
   projectDiv.classList.add("project");
   projectTitle.classList.add("title");
-  DeleteButton.classList.add("delete-button");
-
+  deleteButton.classList.add("delete-button");
+  img.src = closeSvgURL;
   projectTitle.textContent = project.title;
-  DeleteButton.textContent = "X";
 
-  DeleteButton.addEventListener("click", () => {
+  deleteButton.addEventListener("click", () => {
     const removeConfirmation = confirm("Are you sure?");
     if (removeConfirmation) {
       projectDiv.remove();
@@ -56,8 +58,9 @@ function displayNewProject(project) {
     projectDiv.classList.add("active");
     displayNewTodo();
   });
+  deleteButton.appendChild(img);
   projectDiv.appendChild(projectTitle);
-  projectDiv.appendChild(DeleteButton);
+  projectDiv.appendChild(deleteButton);
   projectContainer.appendChild(projectDiv);
   displayNewTodo();
   const clickEvent = new Event("click");
