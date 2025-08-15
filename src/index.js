@@ -159,6 +159,12 @@ todoFormSubmitButton.addEventListener("click", (e) => {
   displayNewTodo();
 });
 
+todoFormBackButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  addTodoForm.style.display = "none";
+  todoContainer.style.display = "flex";
+});
+
 class Project {
   constructor(title) {
     this.title = title;
