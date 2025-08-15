@@ -198,15 +198,14 @@ body {
   border: 3px solid var(--buttonBgColor2);
 }
 
+.todo .content.checked {
+  background-color: var(--buttonBgColor5);
+}
+
 .todo .title {
   padding: 8px;
   font-size: 1.2rem;
   font-weight: 700;
-}
-
-.todo .title.checked {
-  text-decoration: line-through;
-  text-decoration-color: var(--buttonBgColor5);
 }
 
 .content .button-container button {

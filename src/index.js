@@ -99,6 +99,11 @@ function displayNewTodo() {
     deleteSvg.src = deleteSvgURL;
     editSvg.src = editSvgURL;
 
+    if (todo.completed) {
+      checkBox.classList.add("checked");
+      contentDiv.classList.add("checked");
+    }
+
     todoTitle.textContent = todo.title;
     deleteButton.appendChild(deleteSvg);
     editButton.appendChild(editSvg);
@@ -115,12 +120,14 @@ function displayNewTodo() {
     todoContainer.appendChild(todoDiv);
 
     checkBox.addEventListener("click", () => {
-      if (checkBox.classList.contains("checked")) {
-        checkBox.classList.remove("checked");
-        todoTitle.classList.remove("checked");
-      } else {
+      todo.completed = !todo.completed;
+
+      if (todo.completed) {
         checkBox.classList.add("checked");
-        todoTitle.classList.add("checked");
+        contentDiv.classList.add("checked");
+      } else {
+        checkBox.classList.remove("checked");
+        contentDiv.classList.remove("checked");
       }
     });
 
@@ -230,5 +237,6 @@ class Todo {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
+    this.completed = false;
   }
 }
