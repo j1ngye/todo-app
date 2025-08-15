@@ -98,7 +98,6 @@ body {
 
 .project.active .delete-button {
   background-color: var(--buttonBgColor5);
-  border-radius: 0;
 }
 
 .project .title {
@@ -113,6 +112,7 @@ body {
   height: 100%;
   min-width: 20%;
   border: none;
+  border-radius: 0;
   border-left: 3px solid var(--buttonBgColor1);
   background-color: var(--background-color2);
 }
