@@ -56,7 +56,7 @@ body {
   position: absolute;
   top: 2%;
   left: 10%;
-  border: 1px solid var(--buttonBgColor1);
+  border: 3px solid var(--buttonBgColor1);
   background-color: var(--background-color2);
   padding: 14px 7px;
   margin-top: auto;
@@ -78,7 +78,7 @@ body {
 .project {
   display: flex;
   justify-content: space-between;
-  border: 1px solid var(--buttonBgColor1);
+  border: 3px solid var(--buttonBgColor1);
   background-color: var(--background-color2);
   flex-shrink: 1;
 }
@@ -97,7 +97,7 @@ body {
   height: 100%;
   min-width: 20%;
   border: none;
-  border-left: 1px solid var(--buttonBgColor1);
+  border-left: 3px solid var(--buttonBgColor1);
   background-color: var(--background-color2);
 }
 
@@ -105,7 +105,7 @@ body {
   height: 100%;
   min-width: 20%;
   border: none;
-  border-left: 1px solid var(--buttonBgColor1);
+  border-left: 3px solid var(--buttonBgColor1);
   background-color: var(--background-color2);
 }
 
@@ -121,7 +121,7 @@ body {
 
 .add-project-form {
   display: none;
-  border: 1px solid var(--buttonBgColor1);
+  border: 3px solid var(--buttonBgColor1);
 }
 
 .right-panel {
@@ -157,7 +157,7 @@ body {
   left: 10%;
   padding: 14px 7px;
   width: 120px;
-  border: 1px solid var(--buttonBgColor2);
+  border: 3px solid var(--buttonBgColor2);
   background-color: var(--background-color2);
 }
 
@@ -172,12 +172,12 @@ body {
   width: 35px;
   height: 35px;
   border-radius: 50%;
-  border: 1px solid var(--buttonBgColor2);
+  border: 3px solid var(--buttonBgColor2);
   background-color: var(--background-color2);
 }
 
 .todo .checkbox.checked {
-  border: 1px solid var(--buttonBgColor5);
+  border: 3px solid var(--buttonBgColor5);
   background-color: var(--buttonBgColor5);
 }
 
@@ -195,7 +195,7 @@ body {
   display: flex;
   height: 100%;
   align-items: center;
-  border: 1px solid var(--buttonBgColor2);
+  border: 3px solid var(--buttonBgColor2);
 }
 
 .todo .title {
@@ -208,7 +208,7 @@ body {
 }
 
 .content .button-container button {
-  border-left: 1px solid var(--buttonBgColor2);
+  border-left: 3px solid var(--buttonBgColor2);
   background-color: var(--background-color2);
 }
 
@@ -248,7 +248,7 @@ textarea,
 select {
   flex-grow: 1;
   padding: 12px 6px;
-  border: 1px solid var(--background-color1);
+  border: 3px solid var(--background-color1);
   background-color: var(--background-color2);
   outline: none;
 }
@@ -276,11 +276,11 @@ textarea#description {
 }
 
 .add-todo-form .button-container .back-button {
-  border: 1px solid var(--buttonBgColor4);
+  border: 3px solid var(--buttonBgColor4);
 }
 
 .add-todo-form .button-container .submit-button {
-  border: 1px solid var(--buttonBgColor3);
+  border: 3px solid var(--buttonBgColor3);
 }
 
 .add-todo-form h1 {
