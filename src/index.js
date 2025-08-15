@@ -3,6 +3,7 @@ import editSvgURL from "./images/edit.svg";
 import deleteSvgURL from "./images/close.svg";
 
 const logo = document.querySelector("#logo");
+const message = document.querySelector("p.message");
 const projectContainer = document.querySelector(".project-container");
 const addProjectButton = document.querySelector(".left-panel .add-button");
 const addProjectForm = document.querySelector(".add-project-form");
@@ -169,7 +170,11 @@ projectFormSubmitButton.addEventListener("click", (e) => {
 });
 
 addTodoButton.addEventListener("click", () => {
-  if (!currentProject) return;
+  if (!currentProject) {
+    message.textContent = "You must have a project!";
+    return;
+  }
+  message.textContent = "Welcome Back!";
   addTodoForm.style.display = "flex";
   todoContainer.style.display = "none";
 });
