@@ -46,13 +46,20 @@ function displayNewProject(project) {
   });
   projectDiv.addEventListener("click", (e) => {
     e.stopPropagation();
+    const projectDivs = Array.from(projectContainer.children).slice(1);
+    projectDivs.forEach((p) => {
+      p.classList.remove("active");
+    });
     currentProject = project;
+    projectDiv.classList.add("active");
     displayNewTodo();
   });
   projectDiv.appendChild(projectTitle);
   projectDiv.appendChild(DeleteButton);
   projectContainer.appendChild(projectDiv);
   displayNewTodo();
+  const clickEvent = new Event("click");
+  projectDiv.dispatchEvent(clickEvent);
 }
 
 function displayNewTodo() {

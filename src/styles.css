@@ -12,7 +12,6 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background-color: #44475a;
   color: white;
 }
 
@@ -31,7 +30,6 @@ body {
   height: 100%;
   display: flex;
   gap: 10px;
-  background-color: inherit;
 }
 
 .left-panel {
@@ -49,6 +47,7 @@ body {
   top: 2%;
   left: 10%;
   border: 1px solid var(--buttonBgColor1);
+  background-color: var(--background-color2);
   padding: 14px 7px;
   margin-top: auto;
   width: 120px;
@@ -70,7 +69,12 @@ body {
   display: flex;
   justify-content: space-between;
   border: 1px solid var(--buttonBgColor1);
+  background-color: var(--background-color2);
   flex-shrink: 1;
+}
+
+.project.active {
+  border-bottom: 4px solid #1df954;
 }
 
 .project .title {
@@ -84,6 +88,7 @@ body {
   min-width: 20%;
   border: none;
   border-left: 1px solid var(--buttonBgColor1);
+  background-color: var(--background-color2);
 }
 
 .add-project-form .submit-button {
@@ -91,9 +96,11 @@ body {
   min-width: 20%;
   border: none;
   border-left: 1px solid var(--buttonBgColor1);
+  background-color: var(--background-color2);
 }
 
 .add-project-form input {
+  background-color: var(--background-color2);
   display: block;
   outline: none;
   border: none;
@@ -136,6 +143,7 @@ body {
   padding: 14px 7px;
   width: 120px;
   border: 1px solid var(--buttonBgColor2);
+  background-color: var(--background-color2);
 }
 
 .todo {
@@ -150,10 +158,12 @@ body {
   height: 35px;
   border-radius: 50%;
   border: 1px solid var(--buttonBgColor2);
+  background-color: var(--background-color2);
 }
 
 .todo .checkbox.checked {
   border: 1px solid var(--buttonBgColor5);
+  background-color: var(--background-color2);
 }
 
 .todo .button-container {
@@ -183,6 +193,7 @@ body {
 
 .content .button-container button {
   border-left: 1px solid var(--buttonBgColor2);
+  background-color: var(--background-color2);
 }
 
 .button-container button {
@@ -222,6 +233,7 @@ select {
   flex-grow: 1;
   padding: 12px 6px;
   border: 1px solid var(--background-color1);
+  background-color: var(--background-color2);
   outline: none;
 }
 
@@ -242,6 +254,7 @@ textarea#description {
 }
 
 .add-todo-form .button-container > button {
+  background-color: var(--background-color2);
   width: 120px;
   flex-grow: 0;
 }
