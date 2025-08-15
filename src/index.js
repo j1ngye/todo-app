@@ -56,7 +56,7 @@ let currentEditingTodo = null;
 setInterval(() => {
   const rand = Math.floor(Math.random() * randomMessages.length);
   message.textContent = randomMessages[rand];
-}, 10000);
+}, 15000);
 
 function createProject(title) {
   projects.push(new Project(title));
