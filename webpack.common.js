@@ -25,8 +25,8 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.svg$/i,
-        use: ["@svgr/webpack"],
+        test: /\.svg$/,
+        loader: "svg-inline-loader",
       },
     ],
   },
