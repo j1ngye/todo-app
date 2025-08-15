@@ -34,6 +34,13 @@ body {
   display: flex;
 }
 
+.message-box {
+  position: absolute;
+  top: 30px;
+  right: 100px;
+  z-index: 100;
+}
+
 #logo {
   position: absolute;
   z-index: 100;
