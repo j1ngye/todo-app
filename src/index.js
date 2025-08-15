@@ -22,6 +22,33 @@ const todoFormBackButton = document.querySelector(
 );
 
 let projects = [];
+let randomMessages = [
+  "Stop scrolling, start strolling",
+  "Tasks are like blood - don't let them stagnate",
+  "You're not lazy, you're energy efficient",
+  "Procrastinate tomorrow instead",
+  "I'd motivate you but I'm nocturnal",
+  "Your to-do list is judging you",
+  "Even my coffin is more productive",
+  "Work or I'll turn you into a bat",
+  "Your excuses are older than me",
+  "I've seen zombies with more hustle",
+  "Dracula never hit snooze",
+  "Finish this or join my night shift",
+  "Your productivity is... transparent",
+  "I'd help but I'm allergic to work",
+  "That task isn't going to suck itself",
+  "You're not slow, you're buffering",
+  "I'd curse you but your work ethic already did",
+  "Your focus is as solid as my reflection",
+  "Less talking, more coffin... I mean working",
+  "Tick tock... before I do",
+];
+
+setInterval(() => {
+  const rand = Math.floor(Math.random() * randomMessages.length);
+  message.textContent = randomMessages[rand];
+}, 10000);
 let currentProject;
 let isEditing = false;
 let currentEditingTodo = null;
@@ -51,6 +78,7 @@ function displayNewProject(project) {
   deleteButton.addEventListener("click", () => {
     const deleteConfirmation = confirm("Are you sure?");
     if (deleteConfirmation) {
+      message.textContent = "The project is deleted!";
       projectDiv.remove();
       projects = projects.filter((p) => p !== project);
       project.todos = [];
@@ -135,9 +163,11 @@ function displayNewTodo() {
       if (todo.completed) {
         checkBox.classList.add("checked");
         contentDiv.classList.add("checked");
+        message.textContent = "Well Done!";
       } else {
         checkBox.classList.remove("checked");
         contentDiv.classList.remove("checked");
+        message.textContent = "You Can Do it!";
       }
     });
 
@@ -168,8 +198,9 @@ projectFormSubmitButton.addEventListener("click", (e) => {
   e.preventDefault();
   const inputVal = addProjectForm.children[0].value;
   if (inputVal === "") {
-    alert("Title is required");
+    message.textContent = "You must give it a title!";
   } else {
+    message.textContent = "";
     createProject(inputVal);
     currentProject = projects[projects.length - 1];
     displayNewProject(projects[projects.length - 1]);
@@ -197,9 +228,10 @@ todoFormSubmitButton.addEventListener("click", (e) => {
   const dueDateInputValue = document.querySelector("input#due-date").value;
   const priorityInputValue = document.querySelector("select#priority").value;
   if (titleInputValue === "") {
-    alert("Title is required");
+    message.textContent = "You must give it a title!";
     return;
   }
+  message.textContent = "";
   if (isEditing && currentEditingTodo) {
     currentEditingTodo.title = titleInputValue;
     currentEditingTodo.description = descriptionInputValue;
