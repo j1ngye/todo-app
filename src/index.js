@@ -35,14 +35,19 @@ function displayNewProject(project) {
   projectTitle.textContent = project.title;
   DeleteButton.textContent = "X";
 
-  DeleteButton.addEventListener("click", () => projectDiv.remove());
+  DeleteButton.addEventListener("click", () => {
+    projectDiv.remove();
+    project.todos = [];
+  });
   projectDiv.addEventListener("click", (e) => {
     e.stopPropagation();
     currentProject = project;
+    displayNewTodo();
   });
   projectDiv.appendChild(projectTitle);
   projectDiv.appendChild(DeleteButton);
   projectContainer.appendChild(projectDiv);
+  displayNewTodo();
 }
 
 function displayNewTodo() {
