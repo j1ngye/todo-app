@@ -23,35 +23,41 @@ const todoFormBackButton = document.querySelector(
 
 let projects = [];
 let randomMessages = [
-  "Stop scrolling, start strolling",
-  "Tasks are like blood - don't let them stagnate",
-  "You're not lazy, you're energy efficient",
-  "Procrastinate tomorrow instead",
-  "I'd motivate you but I'm nocturnal",
-  "Your to-do list is judging you",
-  "Even my coffin is more productive",
-  "Work or I'll turn you into a bat",
-  "Your excuses are older than me",
-  "I've seen zombies with more hustle",
-  "Dracula never hit snooze",
-  "Finish this or join my night shift",
-  "Your productivity is... transparent",
-  "I'd help but I'm allergic to work",
-  "That task isn't going to suck itself",
-  "You're not slow, you're buffering",
-  "I'd curse you but your work ethic already did",
-  "Your focus is as solid as my reflection",
-  "Less talking, more coffin... I mean working",
-  "Tick tock... before I do",
+  "Rest when you need to, my child",
+  "Your progress is beautiful to behold",
+  "The night embraces your efforts",
+  "Be gentle with your precious self",
+  "Small steps still move mountains",
+  "Your heart's rhythm is your guide",
+  "Breathe deep, the night is patient",
+  "You're doing better than you know",
+  "Darkness holds space for your light",
+  "Your struggles make you human",
+  "The moon witnesses your strength",
+  "Healing happens in quiet moments",
+  "Your worth isn't measured in tasks",
+  "Tend to your soul like a garden",
+  "You're allowed to simply exist",
+  "Stars shine brighter after darkness",
+  "Your journey matters more than speed",
+  "Rest is sacred, not surrender",
+  "You are enough in this moment",
+  "The night cradles your weariness",
+  "Softness is its own strength",
+  "Your light matters in the darkness",
+  "Pause and feel your own heartbeat",
+  "Growth happens between the lines",
+  "Be your own kindest companion",
 ];
+let currentProject;
+let isEditing = false;
+let currentEditingTodo = null;
 
 setInterval(() => {
   const rand = Math.floor(Math.random() * randomMessages.length);
   message.textContent = randomMessages[rand];
 }, 10000);
-let currentProject;
-let isEditing = false;
-let currentEditingTodo = null;
+
 function createProject(title) {
   projects.push(new Project(title));
 }
