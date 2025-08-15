@@ -167,6 +167,10 @@ todoFormSubmitButton.addEventListener("click", (e) => {
   ).value;
   const dueDateInputValue = document.querySelector("input#due-date").value;
   const priorityInputValue = document.querySelector("select#priority").value;
+  if (titleInputValue === "") {
+    alert("Title is required");
+    return;
+  }
   if (isEditing && currentEditingTodo) {
     currentEditingTodo.title = titleInputValue;
     currentEditingTodo.description = descriptionInputValue;
