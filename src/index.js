@@ -1,6 +1,6 @@
 import "./styles.css";
-import editSvgURL from "./images/edit.svg";
-import deleteSvgURL from "./images/close.svg";
+import editSvgURL from "./edit.svg";
+import deleteSvgURL from "./close.svg";
 
 const logo = document.querySelector("#logo");
 const message = document.querySelector("p.message");
