@@ -139,6 +139,7 @@ body {
 
 .add-project-form {
   display: none;
+  overflow: hidden;
   border: 3px solid var(--buttonBgColor1);
 }
 
