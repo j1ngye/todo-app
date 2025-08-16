@@ -321,3 +321,16 @@ textarea#description {
 .add-todo-form h1 {
   align-self: center;
 }
+
+/* For SVG images inside buttons */
+.delete-button img,
+.edit-button img {
+  width: 24px; /* Adjust as needed */
+  height: 24px;
+}
+
+/* For SVG in project delete buttons */
+.project .delete-button img {
+  width: 20px;
+  height: 20px;
+}
