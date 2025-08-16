@@ -325,12 +325,12 @@ textarea#description {
 /* For SVG images inside buttons */
 .delete-button img,
 .edit-button img {
-  width: 24px; /* Adjust as needed */
-  height: 24px;
+  width: 30px; /* Adjust as needed */
+  height: 100%;
 }
 
 /* For SVG in project delete buttons */
 .project .delete-button img {
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 100%;
 }
