@@ -86,6 +86,7 @@ body {
 .project {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 3px solid var(--buttonBgColor1);
   background-color: var(--background-color2);
   flex-shrink: 1;
@@ -215,6 +216,7 @@ body {
   align-items: center;
   overflow: hidden;
   border: 3px solid var(--buttonBgColor2);
+  background-color: var(--background-color2);
 }
 
 .todo .content.checked {
@@ -327,11 +329,16 @@ textarea#description {
 .delete-button img,
 .edit-button img {
   width: 30px; /* Adjust as needed */
-  height: 100%;
+  height: 35px;
 }
 
 /* For SVG in project delete buttons */
 .project .delete-button img {
   width: 35px;
   height: 100%;
+}
+
+.add-project-form,
+.project {
+  height: 40px;
 }
