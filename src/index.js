@@ -20,6 +20,26 @@ const todoFormSubmitButton = document.querySelector(
 const todoFormBackButton = document.querySelector(
   ".add-todo-form .back-button"
 );
+class Project {
+  constructor(title) {
+    this.title = title;
+    this.todos = [];
+  }
+
+  addTodo(todo) {
+    this.todos.push(todo);
+  }
+}
+
+class Todo {
+  constructor(title, description, dueDate, priority) {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.completed = false;
+  }
+}
 
 let projects = [];
 let randomMessages = [
@@ -53,13 +73,54 @@ let currentProject;
 let isEditing = false;
 let currentEditingTodo = null;
 
+// Load data when app starts
+loadFromLocalStorage();
+
 setInterval(() => {
   const rand = Math.floor(Math.random() * randomMessages.length);
   message.textContent = randomMessages[rand];
 }, 15000);
 
+// LocalStorage functions
+function saveToLocalStorage() {
+  localStorage.setItem("todoAppData", JSON.stringify(projects));
+}
+
+function loadFromLocalStorage() {
+  const data = localStorage.getItem("todoAppData");
+  if (data) {
+    const parsedData = JSON.parse(data);
+    projects = parsedData.map((projectData) => {
+      const project = new Project(projectData.title);
+      project.todos = projectData.todos.map((todoData) => {
+        const todo = new Todo(
+          todoData.title,
+          todoData.description,
+          todoData.dueDate,
+          todoData.priority
+        );
+        todo.completed = todoData.completed || false;
+        return todo;
+      });
+      return project;
+    });
+
+    // Display loaded projects
+    projects.forEach((project) => displayNewProject(project));
+
+    if (projects.length > 0) {
+      currentProject = projects[0];
+      displayNewTodo();
+    }
+  }
+}
+
+// Save data before page unload
+window.addEventListener("beforeunload", saveToLocalStorage);
+
 function createProject(title) {
   projects.push(new Project(title));
+  saveToLocalStorage();
 }
 
 logo.addEventListener("click", () => {
@@ -87,7 +148,7 @@ function displayNewProject(project) {
       message.textContent = "The project is deleted!";
       projectDiv.remove();
       projects = projects.filter((p) => p !== project);
-      project.todos = [];
+      saveToLocalStorage();
 
       if (currentProject === project) {
         currentProject = null;
@@ -96,10 +157,9 @@ function displayNewProject(project) {
       if (projects.length === 0) {
         message.textContent = "Create a project to get started!";
       }
-    } else {
-      return;
     }
   });
+
   projectDiv.addEventListener("click", (e) => {
     e.stopPropagation();
     const projectDivs = Array.from(projectContainer.children).slice(1);
@@ -110,16 +170,23 @@ function displayNewProject(project) {
     projectDiv.classList.add("active");
     displayNewTodo();
   });
+
   deleteButton.appendChild(deleteSvg);
   projectDiv.appendChild(projectTitle);
   projectDiv.appendChild(deleteButton);
   projectContainer.appendChild(projectDiv);
   displayNewTodo();
-  const clickEvent = new Event("click");
-  projectDiv.dispatchEvent(clickEvent);
+
+  // Activate the first project by default
+  if (projects.length === 1) {
+    const clickEvent = new Event("click");
+    projectDiv.dispatchEvent(clickEvent);
+  }
 }
 
 function displayNewTodo() {
+  if (!currentProject) return;
+
   todoContainer.innerHTML = "";
 
   for (let todo of currentProject.todos) {
@@ -165,6 +232,7 @@ function displayNewTodo() {
 
     checkBox.addEventListener("click", () => {
       todo.completed = !todo.completed;
+      saveToLocalStorage();
 
       if (todo.completed) {
         checkBox.classList.add("checked");
@@ -179,6 +247,7 @@ function displayNewTodo() {
 
     deleteButton.addEventListener("click", () => {
       currentProject.todos = currentProject.todos.filter((t) => t !== todo);
+      saveToLocalStorage();
       displayNewTodo();
     });
 
@@ -253,6 +322,7 @@ todoFormSubmitButton.addEventListener("click", (e) => {
       )
     );
   }
+  saveToLocalStorage();
   resetTodoForm();
   displayNewTodo();
 });
@@ -272,23 +342,3 @@ todoFormBackButton.addEventListener("click", (e) => {
   e.preventDefault();
   resetTodoForm();
 });
-
-class Project {
-  constructor(title) {
-    this.title = title;
-    this.todos = [];
-  }
-
-  addTodo(todo) {
-    this.todos.push(todo);
-  }
-}
-class Todo {
-  constructor(title, description, dueDate, priority) {
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.completed = false;
-  }
-}
